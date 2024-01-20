@@ -21,31 +21,24 @@ function loadQuestion() {
   const currentQuestion = questions[currentQuestionIndex];
   document.getElementById('question').innerText = currentQuestion.question;
 
-    // Always shuffle the answers for each question
-	const shuffledAnswers = [...currentQuestion.answers];
-	shuffleArray(shuffledAnswers);
+  // Always shuffle the answers for each question
+  const shuffledAnswers = [...currentQuestion.answers];
+  shuffleArray(shuffledAnswers);
 
-	// Update the correct answer index for the shuffled answers
-	currentQuestion.shuffledCorrectAnswer = shuffledAnswers.indexOf(currentQuestion.answers[currentQuestion.correctAnswer]);
+  // Update the correct answer index for the shuffled answers
+  currentQuestion.shuffledCorrectAnswer = shuffledAnswers.indexOf(currentQuestion.answers[currentQuestion.correctAnswer]);
 
-	// Store the shuffled answers in the current question object
-	currentQuestion.shuffledAnswers = shuffledAnswers;
+  // Store the shuffled answers in the current question object
+  currentQuestion.shuffledAnswers = shuffledAnswers;
 
-
-
-    // Update the correct answer index for the shuffled answers
-    currentQuestion.shuffledCorrectAnswer = shuffledAnswers.indexOf(currentQuestion.answers[currentQuestion.correctAnswer]);
-
-    currentQuestion.shuffledAnswers = shuffledAnswers;
-  }
-
+  // Update the correct answer index for the shuffled answers
   const answersHtml = shuffledAnswers.map((answer, index) => {
     const selectedClass = index === selectedAnswerIndex ? 'selected' : '';
     return `<div class="answer ${selectedClass}" onclick="selectAnswer(${index})">${answer}</div>`;
   }).join('');
 
- document.getElementById('answers').innerHTML = answersHtml;
-
+  document.getElementById('answers').innerHTML = answersHtml;
+}
 
 function selectAnswer(selectedIndex) {
   selectedAnswerIndex = selectedIndex;
