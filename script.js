@@ -44,8 +44,8 @@ function loadQuestion() {
     return `<div class="answer ${selectedClass}" onclick="selectAnswer(${index})">${answer}</div>`;
   }).join('');
 
-  document.getElementById('answers').innerHTML = answersHtml;
-}
+ document.getElementById('answers').innerHTML = answersHtml;
+
 
 function selectAnswer(selectedIndex) {
   selectedAnswerIndex = selectedIndex;
