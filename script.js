@@ -21,10 +21,17 @@ function loadQuestion() {
   const currentQuestion = questions[currentQuestionIndex];
   document.getElementById('question').innerText = currentQuestion.question;
 
-  // Copy the answers array and shuffle the order only if it's a new question
-  const shuffledAnswers = currentQuestion.shuffledAnswers || [...currentQuestion.answers];
-  if (!currentQuestion.shuffledAnswers) {
-    shuffleArray(shuffledAnswers);
+    // Always shuffle the answers for each question
+	const shuffledAnswers = [...currentQuestion.answers];
+	shuffleArray(shuffledAnswers);
+
+	// Update the correct answer index for the shuffled answers
+	currentQuestion.shuffledCorrectAnswer = shuffledAnswers.indexOf(currentQuestion.answers[currentQuestion.correctAnswer]);
+
+	// Store the shuffled answers in the current question object
+	currentQuestion.shuffledAnswers = shuffledAnswers;
+
+
 
     // Update the correct answer index for the shuffled answers
     currentQuestion.shuffledCorrectAnswer = shuffledAnswers.indexOf(currentQuestion.answers[currentQuestion.correctAnswer]);
