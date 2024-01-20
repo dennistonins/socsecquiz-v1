@@ -1,9 +1,5 @@
 const questions = [
-  { question: "Question 1 (a)?", answers: ["A", "B", "C", "D"], correctAnswer: 0 },
-  { question: "Question 2 (b)?", answers: ["A", "B", "C", "D"], correctAnswer: 1 },
-  { question: "Question 3 (c)?", answers: ["A", "B", "C", "D"], correctAnswer: 2 },
-  { question: "Question 4 (d)?", answers: ["A", "B", "C", "D"], correctAnswer: 3 },
-  { question: "Question 5 (a)?", answers: ["A", "B", "C", "D"], correctAnswer: 0 },
+  { question: "Question 1?", answers: ["A", "B", "C", "D"], correctAnswer: 0 },
   // Add more questions here...
 ];
 let currentQuestionIndex = Math.floor(Math.random() * questions.length);
